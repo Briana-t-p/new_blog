@@ -1,0 +1,48 @@
+<!-- Headers in row class within own columns above blog posts index -->
+  <div class="row">
+    <!-- Title of posts -->
+    <div class="col s3">
+      <h4 class="left-align">Title</h4>
+    </div>
+    <!-- Post content -->
+    <div class="col s3">
+      <h4 class="center-align">Post</h4>
+    </div>
+    <!-- Time posts creation -->
+    <div class="col s3">
+      <h4 class="right-align">Created at</h4>
+    </div>
+  </div>
+
+    <!-- Post generated with do each -->
+    <% @posts.each do |post|%>
+    <div class="row">
+      <!-- Titles for post -->
+      <div class="col s3">
+      <%= post.title %>
+    </div>
+    <div class="col s3">
+      <!-- Trucated post so user can preview post -->
+      <p class="center-align" ><%= truncate(post.body, length: 20) %></p>
+    </div>
+
+        <div class="col s3" >
+          <!-- Time post was created-->
+      <p class="right-align"><%= time_ago_in_words(post.created_at) %> ago</p>
+    </div>
+    <div class="col s3">
+      <!-- Posts options -->
+      <!-- Link to full posts -->
+      <p><%= link_to 'Full post', post_path(post)%></p>
+      <!-- Edit Posts path -->
+      <p><%= link_to 'Edit', edit_post_path(post)%></p>
+      <!-- Posts deletion -->
+      <p><%= link_to 'Delete', post_path(post), method: :Delete, data: {confirm: "are you sure??"}%>
+    </div>
+
+    </div>
+    <!-- border to seperate each posts generated -->
+     <div class="divider"></div>
+    <%end%>
+
+  </div>

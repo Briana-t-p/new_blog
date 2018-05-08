@@ -1,0 +1,12 @@
+<!-- partial for comments that are generated-->
+
+<div class="divider"></div>
+<h5>Comments</h5>
+<% @post.comments.each do |comment|%>
+<div>
+<p><strong><%= comment.commenter %></strong> says...</p>
+<%= comment.body %>
+</div>
+<!-- Delete comment buttons -->
+<p><%= link_to 'Delete Comment', [comment.post, comment], method: :Delete, data: {confirm: 'Are you Sure?'} %></p>
+<%end%>

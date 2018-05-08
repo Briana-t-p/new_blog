@@ -1,0 +1,32 @@
+<!-- Form to create new posts -->
+<h1>Create a new Post</h1>
+<!-- After posts generated send to posts index -->
+<%= form_for :post, url: posts_path do |f| %>
+
+
+<% if @post.errors.any? %>
+<!-- If theres any issues in it won't save and gives message -->
+<div id="Error_explantion">
+  <h2>
+    <%= pluralize(@post.errors.count, "error")%>
+    Won't save article:
+  </h2>
+    <ul>
+    <%@post.errors.full_messages.each do |msg|%>
+
+  <li>
+    <%= msg %>
+  </li>
+  </ul>
+  <% end %>
+  <% end %>
+<!-- Otherwise create posts -->
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+
+  <%= f.label :body %><br>
+  <%= f.text_area :body %>
+
+    <a class="waves-effect waves-light btn"><%= f.submit %></a>
+
+<% end %>

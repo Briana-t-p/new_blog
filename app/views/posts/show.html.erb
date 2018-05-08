@@ -1,0 +1,16 @@
+<!-- Show page that generates full posts -->
+<div class="row">
+<div class="col s12">
+  <!-- Entire post in column that takes up screen -->
+<h4><%= @post.title %></h4>
+<p> Created <%= time_ago_in_words(@post.created_at) %> ago</p>
+<h5><%= @post.body %></h5>
+</div>
+<div class="col s6">
+  <!-- comment form and comments share the screen. Render at bottom -->
+<%= render 'comments/comment'%>
+</div>
+<div class="col s6">
+<%= render 'comments/formComment'%>
+</div>
+</div>

@@ -1,0 +1,13 @@
+<!-- Form for editing a blog post -->
+<h3>Edit a Post</h3>
+<%= form_for @post do |f| %>
+  <%= f.label :title %><br>
+  <%= f.text_field :title%>
+
+  <%= f.label :body %><br>
+  <%= f.text_area :body %>
+
+<!-- Button styling from materialize -->
+<a class="waves-effect waves-light btn"><%= f.submit %></a>
+
+<% end %>
