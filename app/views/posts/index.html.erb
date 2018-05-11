@@ -34,10 +34,12 @@
       <!-- Posts options -->
       <!-- Link to full posts -->
       <p><%= link_to 'Full post', post_path(post)%></p>
+      <% if current_user.id == post.user_id %>
       <!-- Edit Posts path -->
       <p><%= link_to 'Edit', edit_post_path(post)%></p>
       <!-- Posts deletion -->
       <p><%= link_to 'Delete', post_path(post), method: :Delete, data: {confirm: "are you sure??"}%>
+        <% end %>
     </div>
 
     </div>
